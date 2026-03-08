@@ -1,0 +1,153 @@
+﻿@import "tailwindcss";
+
+:root {
+  --bg-0: #f6efe5;
+  --bg-1: #efe4d6;
+  --bg-2: #efe4d6;
+  --ink-strong: #2f241c;
+  --ink: #5a493d;
+  --ink-muted: #8a7768;
+  --accent: #c97a3d;
+  --accent-soft: #c97a3d;
+  --accent-deep: #b9662e;
+  --card: #fff9f2;
+  --card-strong: #fff9f2;
+  --line: #e6d8c8;
+  --btn-text: #fff8f1;
+  --btn-secondary-border: #d8c7b5;
+  --btn-secondary-bg: #fff9f2;
+  --btn-secondary-text: #5a493d;
+  --hover: #b9662e;
+  --color-bg: var(--bg-0);
+  --color-bg-soft: var(--bg-1);
+  --color-card: var(--card);
+  --color-border: var(--line);
+  --color-heading: var(--ink-strong);
+  --color-text: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-button: var(--accent);
+  --color-button-text: var(--btn-text);
+  --color-secondary-bg: var(--btn-secondary-bg);
+  --color-secondary-border: var(--btn-secondary-border);
+  --color-secondary-text: var(--btn-secondary-text);
+  --color-hover: var(--hover);
+  --color-neon: var(--accent);
+  --font-ui: "IBM Plex Sans", "Avenir Next", "Segoe UI Variable", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-code: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+@theme inline {
+  --color-background: var(--bg-0);
+  --color-foreground: var(--ink-strong);
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-code);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--bg-0);
+  background-image:
+    radial-gradient(circle at 10% 2%, rgba(201, 122, 61, 0.18), transparent 38%),
+    radial-gradient(circle at 92% 14%, rgba(201, 122, 61, 0.14), transparent 42%),
+    radial-gradient(circle at 82% 86%, rgba(185, 102, 46, 0.12), transparent 40%),
+    linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 50%, var(--bg-2) 100%);
+  font-family: var(--font-ui);
+  letter-spacing: 0.01em;
+}
+
+.section-title {
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-strong);
+}
+
+.glass-panel {
+  border: 1px solid var(--line);
+  background: linear-gradient(170deg, var(--card) 0%, var(--card-strong) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 12px 28px rgba(112, 83, 61, 0.1),
+    0 2px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.card-hover {
+  transition: box-shadow 220ms ease, border-color 220ms ease, transform 220ms ease, background-color 220ms ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(185, 102, 46, 0.42);
+  box-shadow:
+    0 16px 34px rgba(132, 92, 63, 0.14),
+    0 0 0 1px rgba(201, 122, 61, 0.2);
+}
+
+.neon-edge {
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-edge::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -1px -20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201, 122, 61, 0.5) 45%, transparent 100%);
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.neon-outline {
+  box-shadow:
+    0 18px 34px rgba(135, 94, 66, 0.12),
+    0 0 0 1px rgba(201, 122, 61, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.45) inset;
+}
+
+.interactive-card {
+  cursor: pointer;
+}
+
+.interactive-card:focus-visible {
+  outline: 2px solid rgba(185, 102, 46, 0.55);
+  outline-offset: 3px;
+}
+
+.project-thumb img {
+  transition: transform 360ms ease, filter 360ms ease;
+}
+
+.group:hover .project-thumb img {
+  transform: scale(1.04);
+  filter: saturate(1.08) contrast(1.02);
+}
+
+.hero-surface {
+  background:
+    radial-gradient(circle at 16% 14%, rgba(201, 122, 61, 0.14), transparent 36%),
+    radial-gradient(circle at 86% 86%, rgba(185, 102, 46, 0.12), transparent 36%),
+    linear-gradient(145deg, rgba(255, 249, 242, 0.86), rgba(239, 228, 214, 0.82));
+  box-shadow:
+    0 18px 36px rgba(121, 86, 61, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.hero-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(201, 122, 61, 0.04) 0,
+    rgba(201, 122, 61, 0.04) 1px,
+    transparent 1px,
+    transparent 18px
+  );
+  pointer-events: none;
+}
